@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3n8ndpgrkmyh"]
+[gd_scene load_steps=4 format=3 uid="uid://d3n8ndpgrkmyh"]
 
 [ext_resource type="PackedScene" uid="uid://bkmbun6v4tf62" path="res://scenes/input_handler.tscn" id="1_gb8nm"]
 [ext_resource type="PackedScene" uid="uid://c11csanidakqe" path="res://scenes/conductor.tscn" id="2_1tawp"]
+[ext_resource type="PackedScene" uid="uid://cnuuhrrdu2q2c" path="res://scenes/player.tscn" id="3_1tawp"]
 
 [node name="TestGame" type="Node2D"]
 
-[node name="InputHandler" parent="." instance=ExtResource("1_gb8nm")]
+[node name="InputHandler" parent="." node_paths=PackedStringArray("conductor", "player") instance=ExtResource("1_gb8nm")]
+conductor = NodePath("../Conductor")
+player = NodePath("../Player")
 
 [node name="Conductor" parent="." instance=ExtResource("2_1tawp")]
+
+[node name="Player" parent="." instance=ExtResource("3_1tawp")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
