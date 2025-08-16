@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c11csanidakqe"]
+
+[ext_resource type="Script" uid="uid://dobmua2g1p2wk" path="res://scripts/conductor.gd" id="1_dqjak"]
+[ext_resource type="AudioStream" uid="uid://c631m3gljwpjf" path="res://assets/music/Duke Dumont - Ocean Drive.wav" id="1_emm5y"]
+
+[node name="Conductor" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_emm5y")
+script = ExtResource("1_dqjak")
+
+[node name="BeatOffsetTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="BeatOffsetTimer" to="." method="_on_beat_offset_timer_timeout"]
